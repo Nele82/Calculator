@@ -87,11 +87,6 @@ function addCalc(str){
     }
 }
 
-// Operands
-// let addDigit = ''
-// let digit = ''
-// let operand = undefined
-
 function selectCalc (oper) {
     if(digit === '') return
     if(addDigit !== '') {
