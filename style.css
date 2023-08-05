@@ -58,6 +58,13 @@ body {
     cursor: pointer;
 }
 
+.button:hover {
+    border: none;
+    
+    background-color: rgb(84, 119, 31);
+    color: rgb(170, 166, 166);
+}
+
 /* S C R E E N   S I Z E S */
 
 /* M O B I L E */
