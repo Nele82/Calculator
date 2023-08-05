@@ -26,6 +26,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border: 2px solid white;
+
+    background-color: rgba(26, 36, 11, 0.685);
 }
 
 #display {
@@ -35,7 +39,10 @@ body {
     flex-direction: column;
     align-items: flex-end;
 
-    border: 2px ridge gray;
+    border: 2px solid white;
+    
+    background-color: rgba(255, 255, 255, 0.164);
+    color: rgb(255, 255, 255);
 }
 
 .button {
@@ -43,7 +50,12 @@ body {
     justify-content: center;
     align-items: center;
 
-    border: 2px ridge gray;
+    border: 2px solid white;
+    
+    background-color: rgba(255, 255, 255, 0.164);
+    color: rgb(255, 255, 255);
+
+    cursor: pointer;
 }
 
 /* S C R E E N   S I Z E S */
@@ -60,6 +72,10 @@ body {
 
     #container {
         width: 95%;
+
+        padding: 2%;
+
+        border-radius: 3vw;
     }
     
     /* Display (MOBILE) */
@@ -97,216 +113,199 @@ body {
         font-size: 15vw;
     }
 
-    /* Buttons - GENERAL (MOBILE) */
+    /* Buttons (MOBILE) */
 
     #buttons {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .button {
-        width: 13vw;
-        height: 13vw;        
+        width: 14vw;
+        height: 14vw;        
 
-        margin-bottom: 4%;
+        margin-bottom: 2%;
 
-        font-size: 7vw;
+        font-size: 8vw;
 
         border-radius: 1.5vw;
     }
 
-    /* Buttons - LEFT (MOBILE) */
-
-    #left {
-        width: 50%;
-
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+    #buttons > button:nth-child(20) {
+        width: 36.5vw;
+        height: 14vw;
     }
 
-    /* Buttons - RIGHT (MOBILE) */
-
-    #right {
-        width: 50%;
-
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
+    #buttons > button:nth-child(21) {
+        width: 36.5vw;
+        height: 14vw;
     }
 }
 
 /* T A B L E T */
 @media only screen and (min-width: 641px) and (max-width: 1007px) {
 
-/* Container & body (TABLET) */
+    /* Container & body (TABLET) */
 
-body {
-    padding: 2.5% 0;
-}
+    body {
+        padding: 2.5% 0;
+    }
 
-#container {
-    width: 95%;
-}
+    #container {
+        width: 65%;
 
-/* Display (TABLET) */
+        padding: 2%;
 
-#display {
-    width: 80%;
-    height: 25vw;
+        border-radius: 3vw;
+    }
+    
+    /* Display (TABLET) */
 
-    padding: 3% 3%;
+    #display {
+        width: 100%;
+        height: 20vw;
 
-    margin-bottom: 2%;
+        padding: 3% 3%;
 
-    border-radius: 1.5vw;
-}
+        margin-bottom: 3%;
 
-#upper {
-    display: flex;
-    justify-content: flex-end;
+        border-radius: 2vw;
+    }
 
-    width: 100%;
+    #upper {
+        display: flex;
+        justify-content: flex-end;
 
-    height: 40%;
+        width: 100%;
 
-    font-size: 5vw;
-}
+        height: 40%;
 
-#lower {
-    display: flex;
-    justify-content: flex-end;
+        font-size: 5vw;
+    }
 
-    width: 100%;
+    #lower {
+        display: flex;
+        justify-content: flex-end;
 
-    height: 60%;
+        width: 100%;
 
-    font-size: 11vw;
-}
+        height: 60%;
 
-/* Buttons - GENERAL (TABLET) */
+        font-size: 10vw;
+    }
 
-#buttons {
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-}
+    /* Buttons (TABLET) */
 
-.button {
-    width: 8vw;
-    height: 8vw;        
+    #buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    margin-bottom: 4%;
+    .button {
+        width: 9.5vw;
+        height: 8vw;        
 
-    font-size: 4.5vw;
+        margin-bottom: 1.15%;
 
-    border-radius: 1vw;
-}
+        font-size: 4.5vw;
 
-/* Buttons - LEFT (TABLET) */
+        border-radius: 1.5vw;
+    }
 
-#left {
-    width: 35%;
+    #buttons > button:nth-child(20) {
+        width: 25vw;
+        height: 8vw;
+    }
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-/* Buttons - RIGHT (TABLET) */
-
-#right {
-    width: 35%;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
+    #buttons > button:nth-child(21) {
+        width: 25vw;
+        height: 8vw;
+    }
 }
 
 /* D E S K T O P */
 @media only screen and (min-width: 1008px) {
 
-/* Container & body (DESKTOP) */
+    /* Container & body (DESKTOP) */
 
-body {
-    padding: 2.5% 0;
-}
+    body {
+        padding: 2.5% 0;
+    }
 
-#container {
-    width: 95%;
-}
+    #container {
+        width: 65%;
 
-/* Display (DESKTOP) */
+        padding: 2%;
 
-#display {
-    width: 65%;
-    height: 15vw;
+        border-radius: 3vw;
+    }
+    
+    /* Display (DESKTOP) */
 
-    padding: 2% 2%;
+    #display {
+        width: 100%;
+        height: 15vw;
 
-    margin-bottom: 2%;
+        padding: 3% 3%;
 
-    border-radius: 1.5vw;
-}
+        margin-bottom: 3%;
 
-#upper {
-    display: flex;
-    justify-content: flex-end;
+        border-radius: 2vw;
+    }
 
-    width: 100%;
+    #upper {
+        display: flex;
+        justify-content: flex-end;
 
-    height: 40%;
+        width: 100%;
 
-    font-size: 3vw;
-}
+        height: 40%;
 
-#lower {
-    display: flex;
-    justify-content: flex-end;
+        font-size: 4vw;
+    }
 
-    width: 100%;
+    #lower {
+        display: flex;
+        justify-content: flex-end;
 
-    height: 60%;
+        width: 100%;
 
-    font-size: 7.5vw;
-}
+        height: 60%;
 
-/* Buttons - GENERAL (DESKTOP) */
+        font-size: 8vw;
+    }
 
-#buttons {
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-}
+    /* Buttons (DESKTOP) */
 
-.button {
-    width: 5.5vw;
-    height: 5.5vw;        
+    #buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    margin-bottom: 4%;
+    .button {
+        width: 9.5vw;
+        height: 5vw;        
 
-    font-size: 3.25vw;
+        margin-bottom: 1.25%;
 
-    border-radius: 1vw;
-}
+        font-size: 3.5vw;
 
-/* Buttons - LEFT (DESKTOP) */
+        border-radius: 1.5vw;
+    }
 
-#left {
-    width: 25%;
+    #buttons > button:nth-child(20) {
+        width: 25vw;
+        height: 5vw;
+    }
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-/* Buttons - RIGHT (DESKTOP) */
-
-#right {
-    width: 25%;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
+    #buttons > button:nth-child(21) {
+        width: 25vw;
+        height: 5vw;
+    }
 }

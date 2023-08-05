@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="img/calc.png" />
     <title>Simple calculator</title>
 </head>
 <body>
@@ -12,30 +13,29 @@
             <span id="upper">0</span>
             <span id="lower">0</span>
         </div>
-        <div id="buttons">
-            <div id="left">
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
-                <button class="button">0</button>
-            </div>
-            <div id="right">
-                <button class="button">=</button>
-                <button class="button">/</button>
-                <button class="button">X</button>
-                <button class="button">-</button>
-                <button class="button">+</button>
-                <button class="button">^</button>
-                <button class="button">C</button>
-                <button class="button">%</button>
-                <button class="button">&#8730;</button>
-                <button class="button">.</button>
+            <div id="buttons">
+                <button data-number class="button">1</button>
+                <button data-number class="button">2</button>
+                <button data-number class="button">3</button>
+                <button data-number class="button">.</button>
+                <button data-all-clear class="button">AC</button>
+                <button data-operation class="button">%</button>
+                <button data-number class="button">4</button>
+                <button data-number class="button">5</button>
+                <button data-number class="button">6</button>
+                <button data-operation class="button">-</button>
+                <button data-operation class="button">+</button>
+                <button data-operation class="button">^</button>
+                <button data-number class="button">7</button>
+                <button data-number class="button">8</button>
+                <button data-number class="button">9</button>
+                <button data-operation class="button">X</button>
+                <button data-operation class="button">&#247;</button>
+
+                <button data-operation class="button">&#8730;</button>
+                <button data-operation class="button">0</button>
+                <button data-delete class="button">DEL</button>
+                <button data-equals class="button">=</button>
             </div>
         </div>
     </div>
