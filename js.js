@@ -32,7 +32,7 @@ function getDigit (n) {
     if (isNaN(decLeft)) {
         showDigit = ''
     } else {
-        showDigit = decLeft
+        showDigit = decLeft.toLocaleString('en-US')
     }
     if (decRight != null) {
         return `${showDigit}.${decRight}`
