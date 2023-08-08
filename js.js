@@ -1,4 +1,4 @@
-// VARIABLES
+// V A R I A B L E S
 
 // Numbers & operators
 const numbers = document.querySelectorAll('[data-number]')
@@ -17,7 +17,7 @@ let addDigit = ''
 let digit = ''
 let operand = undefined
 
-// FUNCTIONS 
+// F U N C T I O N S 
 
 function addNumber(num){
     if(num === '.' && digit.includes('.')) return    
@@ -109,7 +109,7 @@ function removeAdigit() {
     digit = digit.toString().slice(0, -1)
 }
 
-// EVENTS & HANDLERS
+// E V E N T S  &  H A N D L E R S
 
 // Display numbers
 numbers.forEach( num => {
