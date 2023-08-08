@@ -1,1 +1,1 @@
-# Simple-Calculator
+# Pocket-like calculator
