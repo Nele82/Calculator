@@ -20,8 +20,10 @@ let operand = undefined
 // FUNCTIONS 
 
 function addNumber(num){
-    if(num === '.' && digit.includes('.')) return
-    digit = digit.toString() + num.toString()
+    if(num === '.' && digit.includes('.')) return    
+    if(digit.length <= 22) {
+        digit = digit.toString() + num.toString()
+    } else return
 }
 
 function getDigit (n) {
