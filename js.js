@@ -21,7 +21,7 @@ let operand = undefined
 
 function addNumber(num){
     if(num === '.' && digit.includes('.')) return    
-    if(digit.length <= 22) {
+    if(digit.length <= 20) {
         digit = digit.toString() + num.toString()
     } else return
 }
