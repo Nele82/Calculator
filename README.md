@@ -18,18 +18,18 @@ With this in mind, the next paragraph will provide more detailed information abo
 
 At first glance, one can't help but noticing that all MVC components are objects. Here's an overview of how the code works:
 
-- Model (model): This object represents the data and state of the calculator.
+1) Model (model): This object represents the data and state of the calculator.
 
-addDigit: Holds the current digit being entered.
-digit: Holds the accumulated digits for the current number.
-operand: Holds the selected operation (e.g., '+', '-', 'X', '÷', '^').
+- addDigit: Holds the current digit being entered.
+- digit: Holds the accumulated digits for the current number.
+- operand: Holds the selected operation (e.g., '+', '-', 'X', '÷', '^').
 
-- View (view): This object handles the user interface interactions and displays.
+2) View (view): This object handles the user interface interactions and displays.
 
 Various DOM elements are selected and stored as properties.
 The listen function sets up event listeners for numbers, operations, calculations, and other actions.
 
-- Controller (controller): This object contains the logic to manipulate the model and update the view.
+3) Controller (controller): This object contains the logic to manipulate the model and update the view.
 
 addNumber: Appends a digit to the current number.
 getDigit: Formats a number for display, including thousands separators and decimal points.
