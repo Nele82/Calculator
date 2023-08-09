@@ -16,13 +16,15 @@ With this in mind, the next paragraph will provide more detailed information abo
 
 ## How the code works ?
 
-At first glance, one can't help but noticing that all MVC components are objects. Here's an overview of how the code works:
+At first glance, one can't help but noticing that all MVC components are objects so here's an overview of how the code works:
 
-1) Model (model): This object represents the data and state of the calculator.
+1) Model (model): This object represents the data and state of the calculator. 
 
-- addDigit: Holds the current digit being entered.
-- digit: Holds the accumulated digits for the current number.
-- operand: Holds the selected operation (e.g., '+', '-', 'X', '÷', '^').
+It stores 3X keyed collections which hold:
+
+- Current digit being entered;
+- Accumulated digits for the current number;
+- Selected operation (e.g., '+', '-', 'X', '÷', '^').
 
 2) View (view): This object handles the user interface interactions and displays.
 
@@ -31,15 +33,17 @@ The listen function sets up event listeners for numbers, operations, calculation
 
 3) Controller (controller): This object contains the logic to manipulate the model and update the view.
 
-addNumber: Appends a digit to the current number.
-getDigit: Formats a number for display, including thousands separators and decimal points.
-displayNumber: Updates the UI to show the current calculations and results.
-basicCalc: Performs basic calculations using the stored operand and numbers.
-addCalc: Handles additional calculations like percentage or square root.
-selectCalc: Sets the selected operand and prepares for the next number input.
-clearAll: Clears all data and resets the calculator.
-removeAdigit: Removes the last digit from the current number.
-Initialization (controller.start): The listen function from the view is called to set up event listeners.
+As such, it contains methods which:
+
+- append a digit to the current number;
+- format a number for display, including thousands separators and decimal points;
+- update the UI to show the current calculations and results;
+- perform basic calculations using the stored operand and numbers;
+- handles additional calculations like percentage or square root;
+- sets the selected operand and prepares for the next number input;
+- clears all data and resets the calculator;
+- removes the last digit from the current number;
+- Initialization (controller.start): The listen function from the view is called to set up event listeners.
 
 I surely hope I made the code easier to understand. 
 
