@@ -8,11 +8,11 @@ This is a basic calculator application with HTML, JavaScript, and a model-view-c
 
 As it's more or less known, the MVC architecture is used to build applications that are easier to test and maintain. As I mentioned in some of my other projects, there are 3x main components in the MVC architecture:
 
-Model -- which represents the application's data
-View -- which represents the user interface
-Controller -- which represents the working logic of the application
+1) Model -- which represents the application's data
+2) View -- which represents the user interface
+3) Controller -- which represents the working logic of the application
 
-With this in mind, the next paragraph will provide more detailed information about the MVC architecture implementation.
+Hence, the MVC abbreviaiton. With this in mind, the next paragraph will provide more detailed information about the MVC architecture implementation.
 
 ## How the code works ?
 
