@@ -1,158 +1,169 @@
-// V A R I A B L E S
+// M O D E L
 
-// Numbers & operators
-const numbers = document.querySelectorAll('[data-number]')
-const operations = document.querySelectorAll('[data-operation]')
-const addOps = document.querySelectorAll('[data-add]')
-const equals = document.querySelector('[data-equals]')
-const deleteAdigit = document.querySelector('[data-delete]')
-const allClear = document.querySelector('[data-all-clear]')
-
-// Display
-let upper = document.querySelector("#upper")
-let lower = document.querySelector("#lower")
-
-// Operands
-let addDigit = ''
-let digit = ''
-let operand = undefined
-
-// F U N C T I O N S 
-
-function addNumber(num){
-    if(num === '.' && digit.includes('.')) return    
-    if(digit.length <= 20) {
-        digit = digit.toString() + num.toString()
-    } else return
+const model = {
+    // Operands
+    addDigit: '',
+    digit: '',
+    operand: undefined
 }
 
-function getDigit (n) {
-    const numDigit = n.toString()
-    const decLeft = parseFloat(numDigit.split('.')[0])
-    const decRight = numDigit.split('.')[1]
-    let showDigit
-    if (isNaN(decLeft)) {
-        showDigit = ''
-    } else {
-        showDigit = decLeft.toLocaleString('en-US')
-    }
-    if (decRight != null) {
-        return `${showDigit}.${decRight}`
-    } else {
-        return showDigit
+// V I E W
+
+const view = {
+
+   // Numbers & operators
+    numbers: document.querySelectorAll('[data-number]'),
+    operations: document.querySelectorAll('[data-operation]'),
+    addOps: document.querySelectorAll('[data-add]'),
+    equals: document.querySelector('[data-equals]'),
+    deleteAdigit: document.querySelector('[data-delete]'),
+    allClear: document.querySelector('[data-all-clear]'),
+
+    // Display
+    upper: document.querySelector("#upper"),
+    lower: document.querySelector("#lower"), 
+
+    listen: function () {
+
+        // Display numbers
+        this.numbers.forEach( num => {
+            num.addEventListener('click', () => {
+                controller.addNumber(num.innerText)
+                controller.displayNumber()
+            })
+        })
+
+        // Choose operation
+        this.operations.forEach( op => {
+            op.addEventListener('click', () => {
+                controller.selectCalc(op.innerText)
+                controller.displayNumber()
+            })
+        })
+
+        // Basic calculation
+        this.equals.addEventListener('click', () => {
+            controller.basicCalc()
+            controller.displayNumber()
+        })
+
+        // Additional calculations
+        this.addOps.forEach(addop => {
+            addop.addEventListener('click', (e) => {
+                controller.addCalc(e.target.innerText)
+                controller.displayNumber()
+            })
+        })
+
+        // Clear all
+        this.allClear.addEventListener('click', () => {
+            controller.clearAll()
+            controller.displayNumber()
+        })
+
+        // Delete one digit
+        this.deleteAdigit.addEventListener('click', () => {
+            controller.removeAdigit()
+            controller.displayNumber()
+        })
     }
 }
 
-function displayNumber () {
-    lower.innerText = getDigit(digit)
-    if (operand != null) {
-        upper.innerText = `${getDigit(addDigit)} ${operand}`
-    } else {
-        upper.innerText = ''
-    }
-}
+// C O N T R O L L E R
 
-function basicCalc() {
-    let compute
-    const prev = parseFloat(addDigit)
-    const current = parseFloat(digit)
-    if(isNaN(prev) || isNaN(current)) return
-        switch (operand) {
-            case '+': 
-                compute = prev + current
-                break        
-            case '-': 
-                compute = prev - current
-                break        
-            case 'X': 
-                compute = prev * current
-                break        
-            case '÷': 
-                compute = prev / current
-                break              
-            case '^': 
-                compute = Math.pow(prev,current)
-                break              
-            default:
-                return
+const controller = {
+
+    addNumber: function (num) {
+        if(num === '.' && model.digit.includes('.')) return    
+        if(model.digit.length <= 20) {
+            model.digit = model.digit.toString() + num.toString()
+        } else return
+    },
+    
+    getDigit: function (n) {
+        const numDigit = n.toString()
+        const decLeft = parseFloat(numDigit.split('.')[0])
+        const decRight = numDigit.split('.')[1]
+        let showDigit
+        if (isNaN(decLeft)) {
+            showDigit = ''
+        } else {
+            showDigit = decLeft.toLocaleString('en-US')
         }
-    digit = compute
-    operand = undefined
-    addDigit = ''
+        if (decRight != null) {
+            return `${showDigit}.${decRight}`
+        } else {
+            return showDigit
+        }
+    },
+
+    displayNumber: function () {
+        view.lower.innerText = this.getDigit(model.digit)
+        if (model.operand != null) {
+            view.upper.innerText = `${this.getDigit(model.addDigit)} ${model.operand}`
+        } else {
+            view.upper.innerText = ''
+        }
+    },
+
+    basicCalc: function () {
+        let compute
+        const prev = parseFloat(model.addDigit)
+        const current = parseFloat(model.digit)
+        if(isNaN(prev) || isNaN(current)) return
+            switch (model.operand) {
+                case '+': 
+                    compute = prev + current
+                    break        
+                case '-': 
+                    compute = prev - current
+                    break        
+                case 'X': 
+                    compute = prev * current
+                    break        
+                case '÷': 
+                    compute = prev / current
+                    break              
+                case '^': 
+                    compute = Math.pow(prev,current)
+                    break              
+                default:
+                    return
+            }
+        model.digit = compute
+        model.operand = undefined
+        model.addDigit = ''
+    },
+
+    addCalc: function (str) {
+        if (str == '√') {
+            model.digit = Math.sqrt(model.digit)
+        } else  {
+            model.digit = model.digit/100
+        }
+    },
+
+    selectCalc: function (oper) {
+        if(model.digit === '') return
+        if(model.addDigit !== '') {
+            calc()
+        }
+        model.operand = oper
+        model.addDigit = model.digit
+        model.digit = ''
+    },
+    
+    clearAll: function () {
+        model.addDigit = ''
+        model.digit = ''
+        model.operand = undefined
+    },
+    
+    removeAdigit: function () {
+        model.digit = model.digit.toString().slice(0, -1)
+    },
+
+    start: view.listen()
 }
 
-function addCalc(str){
-    if (str == '√') {
-        digit = Math.sqrt(digit)
-    } else  {
-        digit = digit/100
-    }
-}
-
-function selectCalc (oper) {
-    if(digit === '') return
-    if(addDigit !== '') {
-        calc()
-    }
-    operand = oper
-    addDigit = digit
-    digit = ''
-}
-
-function clearAll() {
-    addDigit = ''
-    digit = ''
-    operand = undefined
-}
-
-function removeAdigit() {
-    digit = digit.toString().slice(0, -1)
-}
-
-// E V E N T S  &  H A N D L E R S
-
-// Display numbers
-numbers.forEach( num => {
-    num.addEventListener('click', () => {
-        addNumber(num.innerText)
-        displayNumber()
-    })
-})
-
-// Choose operation
-operations.forEach( op => {
-    op.addEventListener('click', () => {
-        selectCalc(op.innerText)
-        displayNumber()
-    })
-})
-
-// Basic calculation
-equals.addEventListener('click', () => {
-    basicCalc()
-    displayNumber()
-})
-
-// Additional calculations
-addOps.forEach(addop => {
-    addop.addEventListener('click', (e) => {
-        addCalc(e.target.innerText)
-        displayNumber()
-    })
-})
-
-// Clear all
-allClear.addEventListener('click', () => {
-    clearAll()
-    displayNumber()
-})
-
-// Delete one digit
-deleteAdigit.addEventListener('click', () => {
-    removeAdigit()
-    displayNumber()
-})
-
-
-
-
+controller.start
