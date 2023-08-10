@@ -35,14 +35,14 @@ The listen function sets up event listeners for numbers, operations, calculation
 
 As such, it contains methods which:
 
-- append a digit to the current number;
-- format a number for display, including thousands separators and decimal points;
-- update the UI to show the current calculations and results;
-- perform basic calculations using the stored operand and numbers;
-- handles additional calculations like percentage or square root;
-- sets the selected operand and prepares for the next number input;
-- clears all data and resets the calculator;
-- removes the last digit from the current number;
+- Append a digit to the current number;
+- Format a number for display, including thousands separators and decimal points;
+- Update the UI to show the current calculations and results;
+- Perform basic calculations using the stored operand and numbers;
+- Handles additional calculations like percentage or square root;
+- Sets the selected operand and prepares for the next number input;
+- Clears all data and resets the calculator;
+- Removes the last digit from the current number;
 - Initialization (controller.start): The listen function from the view is called to set up event listeners.
 
 I surely hope I made the code easier to understand. 
